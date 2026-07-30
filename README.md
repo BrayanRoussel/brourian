@@ -124,7 +124,7 @@ sudo apt install git -y
 ## 2. Clonar el repositorio
 
 ```bash
-git clone https://github.com/TU_USUARIO/brourian.git
+git clone https://github.com/BrayanRoussel/brourian.git
 ```
 
 ## 3. Entrar al proyecto
