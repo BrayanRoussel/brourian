@@ -1,0 +1,180 @@
+configuration {
+    modi:                       "drun,run,filebrowser";
+    show-icons:                 true;
+    drun-display-format:        "{name}";
+    font:                       "JetBrainsMono Nerd Font 11";
+    icon-theme:                 "Papirus";             /* Ajusta a tu tema de iconos */
+}
+
+/* ==========================================================
+ * COLOR PALETTE (DARK WINE & NEON ACCENTS)
+ * ========================================================== */
+* {
+    /* Fondos translúcidos (ARGB) */
+    bg-main:                    #0f0508ee;  /* Vino profundo 93% opacidad */
+    bg-card:                    #1e0a12cc;  /* Tarjeta 80% opacidad */
+    bg-selected:                #b81d4c;    /* Rojo vino intenso sólido para selección */
+    bg-selected-hover:          #ff1e56;    /* Neón puro al hover */
+    
+    /* Textos */
+    fg-main:                    #f3eef0;    /* Blanco cálido */
+    fg-dim:                     #9e818c;    /* Apagado para placeholder */
+    fg-selected:                #ffffff;    /* Blanco puro en selección */
+    
+    /* Bordes y acentos */
+    border-card:                #801435aa;  /* Borde vino translúcido */
+    border-selected:            #ff1e56;    /* Neón para borde de selección */
+    
+    transparent:                transparent;
+}
+
+/* ==========================================================
+ * MAIN WINDOW
+ * ========================================================== */
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      550px;
+    x-offset:                   0px;
+    y-offset:                   0px;
+
+    enabled:                    true;
+    margin:                     0px;
+    padding:                    24px;
+    border:                     1px solid;
+    border-radius:              20px;
+    border-color:               @border-card;
+    background-color:           @bg-main;
+    cursor:                     "default";
+}
+
+/* ==========================================================
+ * MAIN BOX
+ * ========================================================== */
+mainbox {
+    enabled:                    true;
+    spacing:                    16px;
+    margin:                     0px;
+    padding:                    0px;
+    background-color:           @transparent;
+    children:                   [ "inputbar", "listview" ];
+}
+
+/* ==========================================================
+ * SEARCH BAR
+ * ========================================================== */
+inputbar {
+    enabled:                    true;
+    spacing:                    12px;
+    margin:                     0px;
+    padding:                    12px 18px;
+    border:                     1px solid;
+    border-radius:              14px;
+    border-color:               @border-card;
+    background-color:           @bg-card;
+    text-color:                 @fg-main;
+    children:                   [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                    true;
+    background-color:           @transparent;
+    text-color:                 @fg-main;
+    font:                       "JetBrainsMono Nerd Font 11";
+}
+
+entry {
+    enabled:                    true;
+    background-color:           @transparent;
+    text-color:                 @fg-main;
+    cursor:                     text;
+    placeholder:                "Buscar...";
+    placeholder-color:          @fg-dim;
+    font:                       "JetBrainsMono Nerd Font 11";
+}
+
+/* ==========================================================
+ * LISTVIEW (APP LIST)
+ * ========================================================== */
+listview {
+    enabled:                    true;
+    columns:                    1;
+    lines:                      6;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               true;
+    fixed-columns:              true;
+    
+    spacing:                    4px;
+    margin:                     0px;
+    padding:                    4px 0px;
+    background-color:           @transparent;
+    text-color:                 @fg-main;
+}
+
+/* ==========================================================
+ * ELEMENTS (cada aplicación)
+ * ========================================================== */
+element {
+    enabled:                    true;
+    spacing:                    14px;
+    margin:                     0px;
+    padding:                    10px 14px;
+    border-radius:              12px;
+    background-color:           @transparent;
+    text-color:                 @fg-main;
+    cursor:                     pointer;
+}
+
+element normal.normal {
+    background-color:           @transparent;
+    text-color:                 @fg-main;
+}
+
+element selected.normal {
+    background-color:           @bg-selected;
+    text-color:                 @fg-selected;
+    border:                     1px solid;
+    border-color:               @border-selected;
+}
+
+element alternate.normal {
+    /* Para filas pares (opcional, sutil) */
+    background-color:           rgba(30, 10, 18, 0.3);
+}
+
+/* ==========================================================
+ * ICONS & TEXT
+ * ========================================================== */
+element-icon {
+    background-color:           @transparent;
+    text-color:                 inherit;
+    size:                       28px;
+    cursor:                     inherit;
+}
+
+element-text {
+    background-color:           @transparent;
+    text-color:                 inherit;
+    highlight:                  inherit;
+    cursor:                     inherit;
+    vertical-alignment:         0.5;
+    horizontal-alignment:       0.0;
+    font:                       "JetBrainsMono Nerd Font 11";
+}
+
+/* ==========================================================
+ * ERROR MESSAGE
+ * ========================================================== */
+error-message {
+    padding:                    16px;
+    border-radius:              14px;
+    background-color:           @bg-main;
+    text-color:                 @fg-main;
+    font:                       "JetBrainsMono Nerd Font 10";
+}

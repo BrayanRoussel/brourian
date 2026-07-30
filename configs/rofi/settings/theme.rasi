@@ -1,0 +1,141 @@
+/* ==========================================================
+ * BROURIAN SETTINGS SIDEBAR - GLASS & NEON (WIDE)
+ * ========================================================== */
+
+configuration {
+    show-icons:                 false;
+    font:                       "JetBrainsMono Nerd Font 11";
+}
+
+/* ==========================================================
+ * COLORES (VIDRIO & NEÓN VINO)
+ * ========================================================== */
+* {
+    bg-glass:                   #0a080dcc;   /* Cristal traslúcido oscuro */
+    bg-card:                    #160c13aa;   /* Tarjetas traslúcidas */
+    bg-selected:                #6d122edd;   /* Vino neón al seleccionar */
+    
+    fg-main:                    #f5eff2;
+    fg-dim:                     #9e8a93;
+    
+    accent-neon:                #ff1e56;
+    accent-wine:                #ff1e5633;
+    
+    transparent:                transparent;
+}
+
+/* ==========================================================
+ * VENTANA PRINCIPAL (SIDEBAR MÁS ANCHO)
+ * ========================================================== */
+/* ==========================================================
+ * VENTANA PRINCIPAL (CENTRADITA / MODAL)
+ * ========================================================== */
+window {
+    transparency:               "real";
+    location:                   center;       /* Centrado horizontal y vertical */
+    anchor:                     center;       /* Anclado desde el centro */
+    fullscreen:                 false;
+    width:                      580px;        /* Ancho ideal para ventana modal */
+    height:                     520px;        /* Altura fija compacta para el centro */
+    x-offset:                   0px;          /* Sin desplazamiento en X */
+    y-offset:                   0px;          /* Sin desplazamiento en Y */
+
+    enabled:                    true;
+    margin:                     0px;
+    padding:                    24px 22px;
+    border:                     1px solid;
+    border-radius:              24px;
+    border-color:               @accent-wine;
+    background-color:           @bg-glass;
+    cursor:                     "default";
+}
+
+/* ==========================================================
+ * ESTRUCTURA
+ * ========================================================== */
+mainbox {
+    enabled:                    true;
+    spacing:                    18px;
+    background-color:           @transparent;
+    children:                   [ "inputbar", "listview" ];
+}
+
+/* ==========================================================
+ * CABECERA / HEADER
+ * ========================================================== */
+inputbar {
+    enabled:                    true;
+    spacing:                    10px;
+    padding:                    14px 18px;
+    border-radius:              16px;
+    background-color:           @bg-card;
+    border:                     1px solid;
+    border-color:               @accent-wine;
+    text-color:                 @fg-main;
+    children:                   [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                    true;
+    background-color:           @transparent;
+    text-color:                 @accent-neon;
+    font:                       "JetBrainsMono Nerd Font Bold 12";
+}
+
+entry {
+    enabled:                    true;
+    background-color:           @transparent;
+    text-color:                 @fg-main;
+    placeholder:                "Brourian Panel...";
+    placeholder-color:          @fg-dim;
+}
+
+/* ==========================================================
+ * LISTA DE OPCIONES
+ * ========================================================== */
+listview {
+    enabled:                    true;
+    columns:                    1;
+    lines:                      8;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    
+    spacing:                    10px;
+    background-color:           @transparent;
+}
+
+/* ==========================================================
+ * ELEMENTOS (TARJETAS SELECCIONABLES)
+ * ========================================================== */
+element {
+    enabled:                    true;
+    padding:                    16px 20px;
+    border-radius:              16px;
+    background-color:           @bg-card;
+    text-color:                 @fg-main;
+    cursor:                     pointer;
+    border:                     1px solid;
+    border-color:               transparent;
+}
+
+element normal.normal {
+    background-color:           @bg-card;
+    text-color:                 @fg-main;
+}
+
+element selected.normal {
+    background-color:           @bg-selected;
+    text-color:                 #ffffff;
+    border-color:               @accent-neon;
+}
+
+element-text {
+    background-color:           @transparent;
+    text-color:                 inherit;
+    cursor:                     inherit;
+    vertical-alignment:         0.5;
+    horizontal-alignment:       0.0;
+    font:                       "JetBrainsMono Nerd Font SemiBold 11";
+}
